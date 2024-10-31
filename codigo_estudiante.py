@@ -6,8 +6,8 @@ Created on Sat Oct  5 17:00:25 2024
 """
 
 # Completa las funciones de abajo de acuerdo a la descripción de los parámetros de entrada y salida
+#asdad
 
-import numpy as np
 from PIL import Image
 
 def leer_imagen(ruta_imagen):
@@ -20,10 +20,11 @@ def leer_imagen(ruta_imagen):
     Retorna:
     img: objeto tipo Image de PIL
     """
-    # Abrir la imagen
-    img = None # Insertar código aquí
-        
+    img = Image.open(ruta_imagen)
     return img
+
+ruta_imagen = leer_imagen("data/imagen0.png")
+ruta_imagen.show()
 
 def obtener_info_imagen(img):
     """
@@ -115,7 +116,7 @@ def estadisticas_por_canal(arreglo_img):
         resultados = {}
         num_canales = arreglo_img.shape[2]
         
-        for canal in None # Insertar código aquí
+        for canal in None: # Insertar código aquí
             promedio = np.mean(arreglo_img[:, :, canal])
             desviacion_estandar = np.std(arreglo_img[:, :, canal])
             resultados[f'Canal_{canal+1}'] = {
