@@ -72,8 +72,11 @@ def imagen_a_arreglo(img):
     np.ndarray: Arreglo de NumPy con los datos de la imagen.
     """
     # Convertir la imagen a un arreglo de NumPy
-    arreglo = None # Insertar código aquí
+    arreglo = np.array(img) # Insertar código aquí
     return arreglo
+
+arreglo_img = imagen_a_arreglo(img)
+print(f"Las dimensiones del tensor son: {arreglo_img.shape}")
 
 def estadisticas_intensidad(arreglo_img):
     """
@@ -87,10 +90,14 @@ def estadisticas_intensidad(arreglo_img):
     tuple: (promedio, desviación_estándar) de las intensidades de los píxeles.
     """
     # Calcular el promedio y la desviación estándar
-    promedio = None # Insertar código aquí
-    desviacion_estandar = None # Insertar código aquí
+    promedio = arreglo_img.mean() # Insertar código aquí
+    desviacion_estandar = arreglo_img.std() # Insertar código aquí
     
     return promedio, desviacion_estandar
+
+promedio, desviacion_estandar = estadisticas_intensidad(arreglo_img)
+print(f"Promedio: {promedio:.2f}")
+print(f"Desviación estándar: {desviacion_estandar:.2f}")
 
 def estadisticas_por_canal(arreglo_img):
     """
