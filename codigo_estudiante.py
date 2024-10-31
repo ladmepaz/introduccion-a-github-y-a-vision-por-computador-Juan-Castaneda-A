@@ -8,6 +8,7 @@ Created on Sat Oct  5 17:00:25 2024
 # Completa las funciones de abajo de acuerdo a la descripción de los parámetros de entrada y salida
 #asdad
 
+import numpy as np
 from PIL import Image
 
 def leer_imagen(ruta_imagen):
