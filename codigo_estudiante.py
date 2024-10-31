@@ -24,8 +24,8 @@ def leer_imagen(ruta_imagen):
     img = Image.open(ruta_imagen)
     return img
 
-ruta_imagen = leer_imagen("data/imagen0.png")
-ruta_imagen.show()
+img = leer_imagen("data/imagen0.png")
+img.show()
 
 def obtener_info_imagen(img):
     """
@@ -43,18 +43,23 @@ def obtener_info_imagen(img):
     # Obtener el número de canales
     modo = img.mode
     if modo == 'L':  # Escala de grises
-        num_canales = None # Ingresa valor aquí
+        num_canales = 1 # Ingresa valor aquí
     elif modo == 'RGB':  # Imagen RGB
-        num_canales = None # Ingresa valor aquí
+        num_canales = 3 # Ingresa valor aquí
     elif modo == 'RGBA':  # Imagen RGBA
-        num_canales = None # Ingresa valor aquí
+        num_canales = 4 # Ingresa valor aquí
     else:
         num_canales = len(modo)  # Otros modos de imagen
     
     # Obtener las dimensiones de la imagen
-    dimensiones = None  # Ingresa valor aquí para obtener (ancho, alto)
+    dimensiones = img.size  # Ingresa valor aquí para obtener (ancho, alto)
     
     return num_canales, dimensiones
+
+num_canales, dimensiones = obtener_info_imagen(img)
+#print(f"La imagen tiene dimensiones (ancho, alto) igual a {dimensiones} y {num_canales} canales")
+print(f"Número de canales: {num_canales}")
+print(f"Dimensiones: {dimensiones}")
 
 def imagen_a_arreglo(img):
     """
