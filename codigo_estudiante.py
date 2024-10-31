@@ -116,8 +116,8 @@ def estadisticas_por_canal(arreglo_img):
     # Verificar el número de dimensiones del arreglo
     if len(arreglo_img.shape) == 2:
         # Imagen de un solo canal
-        promedio = None # Insertar código aquí
-        desviacion_estandar = None # Insertar código aquí
+        promedio = arreglo_img.mean() # Insertar código aquí
+        desviacion_estandar = arreglo_img.std() # Insertar código aquí
         resultados = {
             'Canal_1': {
                 'Promedio': promedio,
@@ -129,7 +129,7 @@ def estadisticas_por_canal(arreglo_img):
         resultados = {}
         num_canales = arreglo_img.shape[2]
         
-        for canal in None: # Insertar código aquí
+        for canal in range(num_canales): # Insertar código aquí
             promedio = np.mean(arreglo_img[:, :, canal])
             desviacion_estandar = np.std(arreglo_img[:, :, canal])
             resultados[f'Canal_{canal+1}'] = {
@@ -140,3 +140,8 @@ def estadisticas_por_canal(arreglo_img):
         raise ValueError("El arreglo de imagen debe tener 2 o 3 dimensiones.")
     
     return resultados
+
+resultados = estadisticas_por_canal(arreglo_img)
+print(f"Canal Rojo: Promedio (desviación): {resultados['Canal_1']['Promedio']:.2f} ({resultados['Canal_1']['Desviación Estándar']:.2f})")
+print(f"Canal Verde: Promedio (desviación): {resultados['Canal_2']['Promedio']:.2f} ({resultados['Canal_2']['Desviación Estándar']:.2f})")
+print(f"Canal Azul: Promedio (desviación): {resultados['Canal_3']['Promedio']:.2f} ({resultados['Canal_3']['Desviación Estándar']:.2f})")
